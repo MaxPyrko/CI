@@ -2,16 +2,14 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: java-docker
-  namespace: pyrko
-  labels:
-    app: java-docker
+  # namespace: pyrko
 spec:
   ttlSecondsAfterFinished: 5
   template:
-    metadata:
-      name: java-docker
-      labels:
-        app: java-docker
+    # metadata:
+    #   name: java-docker
+    #   labels:
+    #     app: java-docker
     spec:
       containers:
       - name: java-docker
