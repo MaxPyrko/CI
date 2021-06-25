@@ -1,0 +1,31 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: java-docker
+  namespace: pyrko
+  labels:
+    app: java-docker
+spec:
+  ttlSecondsAfterFinished: 5
+  template:
+    metadata:
+      name: java-docker
+      labels:
+        app: java-docker
+    spec:
+      containers:
+      - name: java-docker
+        image: wordprove/java:1.0.5
+        # imagePullPolicy: Never
+      #   env:
+      #   - name: ENV_NAME
+      #     value: ENV_VALUE
+      #   volumeMounts:
+      #   - name: localtime
+      #     mountPath: /etc/localtime
+      # volumes:
+      # - name: localtime
+      #   hostPath:
+      #     path: /usr/share/zoneinfo/Asia/Shanghai
+      restartPolicy: Never
+      # dnsPolicy: ClusterFirst
